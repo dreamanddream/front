@@ -1,7 +1,10 @@
-// console.log('hello index')
-// $("body").html("hello jquerys");
-// var $$ = require('jquery');
-// $$("body").html("模块")
-require("../module.js")
-require("./index.css")
-console.log("公共js的引用")
+var _mm=require("util/mm.js");
+_mm.request({
+    url:'http://happymmall.com/product/list.do?keyword=1',
+    success:function (res){
+        console.log(res)
+    },
+    error:function (errMsg) {
+        console.log(errMsg)
+    }
+})

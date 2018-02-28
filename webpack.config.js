@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+// 环境变量配置，dev / online
+var WEBPACK_ENV         = process.env.WEBPACK_ENV || 'dev';
 // 封装处理模板的函数，获取webpack-pluginin参数的方法
 var getHtmlConfig = function (name) {
     return {
@@ -15,14 +17,21 @@ var getHtmlConfig = function (name) {
 var config = {
     // entry: './src/page/index/app.js',
     // 处理多入口
+    // webpack-dev-server/client?http://localhost:8088/  配置webpack调试,在浏览器中的路径，加上这句配置地址会随着点击路径的改变而改变
+    // 在实际项目中client结合common/index.js在一起配置不合理，这个是开发环境，为了解决这个问题使用环境变量
     entry: {
-        'common': ['./src/page/common/index.js'], // 如果直接这样写会打包成common.js文件，而没有办法放到base.js中，所以要将name改为common
+        // 'common': ['./src/page/common/index.js'], // 如果直接这样写会打包成common.js文件，而没有办法放到base.js中，所以要将name改为common
+        // 'common': ['./src/page/common/index.js','webpack-dev-server/client?http://localhost:8088/'], // 如果直接这样写会打包成common.js文件，而没有办法放到base.js中，所以要将name改为common
+        'common': ['./src/page/common/index.js'],
         'index' : ['./src/page/index/index.js'],
         'login' : ['./src/page/login/index.js']
     },
     // 入口文件是多个，输出文件也要是多个，否则会覆盖
     output: {
+        // 打包编译的路径
         path: './dist',
+         // 页面中路径的地址，就是各个图片或文件的链接地址
+         publicPath:'/dist',
         // filename支持[name]这种写法,同时要想设置js文件在js文件夹下可以加上路径
         filename: 'js/[name].js'
         // filename: 'app.js'
@@ -49,6 +58,17 @@ var config = {
         //         use: ["style-loader","css-loader"]
         //     })
         // }]
+    },
+    // 为了解决在路径中使用../../这样的路径查找
+    resolve:{
+        // __dirname代表根文件夹
+        alias : {
+            node_modules    : __dirname + '/node_modules',
+            util            : __dirname + '/src/util',
+            page            : __dirname + '/src/page',
+            service         : __dirname + '/src/service',
+            image           : __dirname + '/src/image'
+        }
     },
     // 公共部分
     plugins: [
@@ -79,4 +99,8 @@ var config = {
 
     ]
 };
+// 在开发环境上加上client，在线上环境就不需要
+if('dev' === WEBPACK_ENV){
+    config.entry.common.push('webpack-dev-server/client?http://localhost:8088/');
+}
 module.exports = config;

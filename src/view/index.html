@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--引入公共模板 -->
-<%= require('html-loader!./layout/html-header.html') %>
+<%= require('html-loader!./layout/header-common.html') %>
 <body>
-    <img src="../image/banner1.jpg">
+        <%= require('html-loader!./layout/header.html')  %>
     <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 </body>
 </html>
