@@ -4,10 +4,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 // 环境变量配置，dev / online
 var WEBPACK_ENV         = process.env.WEBPACK_ENV || 'dev';
 // 封装处理模板的函数，获取webpack-pluginin参数的方法
-var getHtmlConfig = function (name) {
+var getHtmlConfig = function (name,title) {
     return {
         template : './src/view/'+name+'.html', // 将index替换成了name
         filename : 'view/'+name+'.html',
+        // 解决每个页面中的title问题
+        title:title,
         inject : true,
         hash : true,
         // 将commonjs和index.js也打包到index.html中
@@ -24,7 +26,9 @@ var config = {
         // 'common': ['./src/page/common/index.js','webpack-dev-server/client?http://localhost:8088/'], // 如果直接这样写会打包成common.js文件，而没有办法放到base.js中，所以要将name改为common
         'common': ['./src/page/common/index.js'],
         'index' : ['./src/page/index/index.js'],
-        'login' : ['./src/page/login/index.js']
+        'login' : ['./src/page/login/index.js'],
+        'result': ['./src/page/result/index.js']
+        // 增加页面内容
     },
     // 入口文件是多个，输出文件也要是多个，否则会覆盖
     output: {
@@ -94,8 +98,11 @@ var config = {
         //     chunks : ['common','index']
         // })
         // 使用函数方法
-        new HtmlWebpackPlugin(getHtmlConfig('index')),
-        new HtmlWebpackPlugin(getHtmlConfig('login'))
+        new HtmlWebpackPlugin(getHtmlConfig('index',"首页")),
+        new HtmlWebpackPlugin(getHtmlConfig('login',"登录")),
+        // 增加其他页面
+        new HtmlWebpackPlugin(getHtmlConfig('result',"结果"))
+
 
     ]
 };
