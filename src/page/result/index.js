@@ -11,6 +11,7 @@ require('page/common/nav-simple/index.js');
 var _mm = require('util/mm.js');
 // 通过接受的参数进行提示，$(function (){}整个页面加载完成后执行)
 $(function(){
+    // 这里的type是页面中url中的值？type=register
     var type        = _mm.getUrlParam('type') || 'default',
     // 找到对应的元素进行渲染
         $element    = $('.' + type + '-success');

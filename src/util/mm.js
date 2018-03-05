@@ -34,7 +34,7 @@ var _mm = {
     // 统一登录处理
     doLogin : function(){
         // 这个写法？？？？？？？？
-        // 让他跳转到登录页，为了避免每次都是跳到主页，所以传个参数，同时解决特殊字符串编码问题
+        // 让他跳转到登录页，为了避免每次都是跳到主页，所以传个参数，当前用户在哪个页面，登录成功时自动还在哪个页面，同时解决特殊字符串编码问题
         window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     },
     goHome : function(){

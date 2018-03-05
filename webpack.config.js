@@ -27,8 +27,10 @@ var config = {
         'common': ['./src/page/common/index.js'],
         'index' : ['./src/page/index/index.js'],
         'login' : ['./src/page/login/index.js'],
-        'result': ['./src/page/result/index.js']
         // 增加页面内容
+        'result': ['./src/page/result/index.js'],
+        'user-login':['./src/page/user-login/index.js'],
+        'user-pass-reset':['./src/page/user-pass-reset/index.js']
     },
     // 入口文件是多个，输出文件也要是多个，否则会覆盖
     output: {
@@ -101,7 +103,9 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('index',"首页")),
         new HtmlWebpackPlugin(getHtmlConfig('login',"登录")),
         // 增加其他页面
-        new HtmlWebpackPlugin(getHtmlConfig('result',"结果"))
+        new HtmlWebpackPlugin(getHtmlConfig('result',"结果")),
+        new HtmlWebpackPlugin(getHtmlConfig('user-login',"用户登录")),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset',"找回密码")),
 
 
     ]
