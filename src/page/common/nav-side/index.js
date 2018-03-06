@@ -24,7 +24,8 @@ var navSide = {
     init : function(option){
         // 合并选项 $.extend两个参数都是对象，extend是一个浅拷贝
         $.extend(this.option, option);
-        // console.log("ss"+ss);
+        // this.option=option;
+        console.log("ss"+this.option);
         this.renderNav();
     },
     // 渲染导航菜单

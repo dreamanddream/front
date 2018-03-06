@@ -65,17 +65,13 @@ var page = {
             // 错误提示
             formError.show(validateResult.msg);
         }
-
     },
     // 表单字段的验证
     formValidate : function(formData){
         var result = {
-            // status相当于标志位
             status  : false,
-            // 验证提示信息
             msg     : ''
         };
-        // 这里传入一个require,是根据util/mm.js中定义的
         if(!_mm.validate(formData.username, 'require')){
             result.msg = '用户名不能为空';
             return result;
@@ -84,7 +80,6 @@ var page = {
             result.msg = '密码不能为空';
             return result;
         }
-        // 通过验证，返回正确提示
         result.status   = true;
         result.msg      = '验证通过';
         return result;

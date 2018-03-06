@@ -49,6 +49,7 @@ var _mm = {
         var reg     = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
         var result  = window.location.search.substr(1).match(reg);
         return result ? decodeURIComponent(result[2]) : null;
+        // console.log("result[2]"+result)
     },
     // 渲染html模板,需要安装hogan插件
     renderHtml : function(htmlTemplate, data){
@@ -70,6 +71,7 @@ var _mm = {
         // 非空验证
         if('require' === type){
             return !!value;
+            console.log("return"+!!value)
         }
         // 手机号验证
         if('phone' === type){

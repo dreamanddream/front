@@ -39,6 +39,7 @@ var page = {
                 _user.getQuestion(username, function(res){
                     _this.data.username = username;
                     _this.data.question = res;
+                    console.log("忘记密码中的res含义"+res)
                     _this.loadStepQuestion();
                 }, function(errMsg){
                     formError.show(errMsg);
