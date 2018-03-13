@@ -62,6 +62,7 @@ var page = {
                     answer   : answer
                 }, function(res){
                     _this.data.answer   = answer;
+                    // 这里还要加载token，注意这个页面的res，核实用户名，提示问题，以及答案要有一个token，这个是后台返回的token
                     _this.data.token    = res;
                     _this.loadStepPassword();
                 }, function(errMsg){
@@ -82,8 +83,10 @@ var page = {
                 _user.resetPassword({
                     username        : _this.data.username,
                     passwordNew     : password,
+                    // 将上次后台返回的token带过去
                     forgetToken     : _this.data.token
                 }, function(res){
+                    // 在操作结果提示页会根据这里的url进行对应结果的显示
                     window.location.href = './result.html?type=pass-reset';
                 }, function(errMsg){
                     formError.show(errMsg);

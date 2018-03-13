@@ -31,7 +31,8 @@ var config = {
         'result': ['./src/page/result/index.js'],
         'user-login':['./src/page/user-login/index.js'],
         'user-pass-reset':['./src/page/user-pass-reset/index.js'],
-        'user-register':['./src/page/user-register/index.js']
+        'user-register':['./src/page/user-register/index.js'],
+        'user-center':['./src/page/user-center/index.js']
     },
     // 入口文件是多个，输出文件也要是多个，否则会覆盖
     output: {
@@ -108,8 +109,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-login',"用户登录")),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset',"找回密码")),
         new HtmlWebpackPlugin(getHtmlConfig('user-register',"注册")),
-
-
+        new HtmlWebpackPlugin(getHtmlConfig('user-center',"个人中心"))
     ]
 };
 // 在开发环境上加上client，在线上环境就不需要
