@@ -23,6 +23,7 @@ var page = {
     loadUserInfo : function(){
         var userHtml = '';
         _user.getUserInfo(function(res){
+            // 渲染页面
             userHtml = _mm.renderHtml(templateIndex, res);
             $('.panel-body').html(userHtml);
         }, function(errMsg){

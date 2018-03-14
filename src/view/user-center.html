@@ -12,6 +12,7 @@
                 <div class="crumb-con">
                     <a class="link" href="./index.html">MMall</a>
                     <span>></span>
+                    <!-- 在这里也使用了比较灵活的方式，title直接根据webpackPlugin中的title -->
                     <span class="link-text"><%= htmlWebpackPlugin.options.title%></span>
                 </div>
             </div>
@@ -23,6 +24,26 @@
                     <div class="panel-title">个人中心</div>
                     <div class="panel-body">
                         <div class="loading"></div>
+                        <!-- 以下内容是通过js渲染的，在未渲染页面之前要先加载loading，将以下内容放到index.string-->
+                        <!-- <div class="form-line">
+                            <span class="label">电话</span>
+                            <span class="text">ppp</span>
+                        </div>
+                        <div class="form-line">
+                            <span class="label">邮箱</span>
+                            <span class="text">ppp</span>
+                        </div>
+                        <div class="form-line">
+                            <span class="label">问题</span>
+                            <span class="text">ppp</span>
+                        </div>
+                        <div class="form-line">
+                            <span class="label">答案</span>
+                            <span class="text">ppp</span>
+                        </div>
+                        <div class="form-line">
+                            <a href="" class="btn btn-submit">编辑</a>
+                        </div> -->
                     </div>
                 </div>
             </div>
