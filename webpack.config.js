@@ -28,6 +28,8 @@ var config = {
         'index' : ['./src/page/index/index.js'],
         // 创建list页面入口
         'list' : ['./src/page/list/index.js'],
+        // 商品详情页
+        'detail' : ['./src/page/detail/index.js'],
         'login' : ['./src/page/login/index.js'],
         // 增加页面内容
         'result': ['./src/page/result/index.js'],
@@ -116,7 +118,8 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-center',"个人中心")),
         new HtmlWebpackPlugin(getHtmlConfig('user-center-update',"更新个人信息")),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-update',"更新密码")),
-        new HtmlWebpackPlugin(getHtmlConfig('list',"商品搜索列表页"))
+        new HtmlWebpackPlugin(getHtmlConfig('list',"商品搜索列表页")),
+        new HtmlWebpackPlugin(getHtmlConfig('detail',"详情页"))
     ]
 };
 // 在开发环境上加上client，在线上环境就不需要
