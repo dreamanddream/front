@@ -110,6 +110,7 @@ var page = {
         var _this = this;
         // 严谨的思维逻辑，如果有paginnation就不再new一个了，执行空，如果没有就new一个
         this.pagination ? '' : (this.pagination = new Pagination());
+        // 使用在原型上添加的方法
         this.pagination.render($.extend({}, pageInfo, {
             container : $('.pagination'),
             onSelectPage : function(pageNum){

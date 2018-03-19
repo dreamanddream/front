@@ -29,9 +29,20 @@ var Pagination = function(){
     });
 };
 // 渲染分页组件，原型继承，这样new出来的方法也能继承
+
+// $.extend({}, pageInfo, {
+//     container : $('.pagination'),
+//     onSelectPage : function(pageNum){
+//         _this.data.listParam.pageNum = pageNum;
+//         // 每点击一次分页相当于又重新加载一次页面
+//         _this.loadList();
+//     }
+// }
+
 Pagination.prototype.render = function(userOption){
     // 合并选项，注意这种extend中第一个参数为{}，这样可以其他参数组件不变
     this.option = $.extend({}, this.defaultOption, userOption);
+    console.log("option"+this.option)
     // 判断容器是否为合法的jquery对象，这里面的写法也很高级
     if(!(this.option.container instanceof jQuery)){
         return;
