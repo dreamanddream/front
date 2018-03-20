@@ -1,0 +1,25 @@
+ <table class="product-table">
+    <tr>
+        <th class="cell-img">&nbsp;</th>
+        <th class="cell-info">商品描述</th>
+        <th class="cell-price">价格</th>
+        <th class="cell-count">数量</th>
+        <th class="cell-total">小计</th>
+        
+    </tr>
+    <tr>
+        <td class="cell-img">
+            <!-- 这里需要传递productId告知，点击对应哪一个商品详情页 -->
+            <!-- 查看详情，新打开一个页面，target="_blank" -->
+            <a href="./detail.html？productId=××××" target="_blank">
+                <img src="" class="p-img" alt="">
+            </a>
+        </td>
+        <td class="cell-info">
+            <a href="./detail.html？productId=××××" class="link" target="_blank">联想</a>
+        </td>
+        <td class="cell-price">￥111</td>
+        <td class="cell-count">33</td>
+        <td class="cell-total">￥333</td>
+    </tr>
+ </table>

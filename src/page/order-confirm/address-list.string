@@ -1,0 +1,12 @@
+<div class="address-item">
+    <div class="address-title">
+        北京 北京 (rosen收)
+    </div>
+    <div class="address-detail">
+        朝阳区三里村 13211111111
+    </div>
+    <div class="address-opera">
+        <span class="link address-update">编辑</span>
+        <span class="link address-delete">删除</span>
+    </div>
+</div>

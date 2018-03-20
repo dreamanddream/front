@@ -1,9 +1,3 @@
-/*
-* @Author: Rosen
-* @Date:   2017-05-30 16:51:25
-* @Last Modified by:   Rosen
-* @Last Modified time: 2017-06-02 21:09:14
-*/
 
 'use strict';
 require('./index.css');
@@ -118,6 +112,7 @@ var page = {
                         .push($($selectedItem[i]).parents('.cart-table').data('product-id'));
                 }
                 if(arrProductIds.length){
+                    // 将数组拼接成字符串，同时删除
                     _this.deleteCartProduct(arrProductIds.join(','));
                 }
                 else{
@@ -154,7 +149,7 @@ var page = {
         // 生成HTML
         var cartHtml = _mm.renderHtml(templateIndex, data);
         $('.page-wrap').html(cartHtml);
-        // 通知导航的购物车更新数量
+        // 通知导航的购物车更新数量，loadCartCount这个方法是nav/index.js中的
         nav.loadCartCount();
     },
     // 删除指定商品，支持批量，productId用逗号分割

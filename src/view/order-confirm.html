@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%= require('html-loader!./layout/header-common.html')  %>
+        <title><%= htmlWebpackPlugin.options.title%> - happymmall电商平台</title>
+    </head>
+    <body>
+        <%= require('html-loader!./layout/nav.html')  %>
+        <%= require('html-loader!./layout/header.html')  %>
+        <div class="crumb">
+            <div class="w">
+                <div class="crumb-con">
+                    <a class="link" href="./index.html">MMall</a>
+                    <span>></span>
+                    <span class="link-text"><%= htmlWebpackPlugin.options.title%></span>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrap w">
+            <!-- 确认订单页面 -->
+            <div class="panel">
+                <h1 class="panel-title">收货地址</h1>
+                <div class="panel-body address-con">
+                    
+                    <!-- <div class="address-item address-add">
+                        <div class="address-new">
+                            <i class="fa fa-plus"></i>
+                            <div class="text">使用新地址</div>
+                        </div>
+                        <div class="address-detail">
+                            朝阳区三里村 13211111111
+                        </div>
+                        <div class="address-opera">
+                            <span class="link address-update">编辑</span>
+                            <span class="link address-delete">删除</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="panel">
+                <h1 class="panel-title">商品清单</h1>
+                <div class="panel-body product-con">
+                   
+                    <div class="submit-con">
+                        <span>订单总价</span>
+                        <span class="submit-total">￥333</span>
+                        <span class="btn order-submit">提交订单</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <h1></h1>
+            </div>
+        </div>
+        <%= require('html-loader!./layout/footer.html')  %>
+    </body>
+</html>

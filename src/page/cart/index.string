@@ -1,9 +1,11 @@
 {{#notEmpty}}
+
 <div class="cart-header">
     <table class="cart-table">
         <tr>
             <th class="cart-cell cell-check">
                 <label class="cart-label">
+                    <!-- 这里的allChecked是后台返回的true还是false，后台如果返回的是true那么就执行<input type="checkbox" class="cart-select-all" checked/>这条语句渲染 -->
                     {{#allChecked}}
                     <input type="checkbox" class="cart-select-all" checked/>
                     {{/allChecked}}
